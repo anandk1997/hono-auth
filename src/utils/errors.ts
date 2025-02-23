@@ -1,7 +1,9 @@
+import { ContentfulStatusCode } from "hono/utils/http-status";
+
 export class ApiError extends Error {
   constructor(
     public message: string,
-    public statusCode: number,
+    public statusCode: ContentfulStatusCode,
     public code: string,
   ) {
     super(message);

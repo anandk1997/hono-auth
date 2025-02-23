@@ -1,16 +1,18 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { logger } from "./utils/logger";
-import { errorHandler } from "./middleware/error";
 import authRoutes from "./routes/auth";
 import protectedRoutes from "./routes/protected";
 import env from "./config";
 import { ApiError } from "./utils/errors";
+import { rateLimiter } from "./middleware/rateLimiter";
 
 const app = new Hono();
 
 // Middleware
 // app.use('*', errorHandler);
+app.use("*", rateLimiter);
+
 app.onError((err, c) => {
   logger.error(err);
   if (err instanceof ApiError) {
