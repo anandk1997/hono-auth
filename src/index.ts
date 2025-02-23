@@ -1,11 +1,11 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
-import { logger } from "./utils/logger";
-import authRoutes from "./routes/auth";
-import protectedRoutes from "./routes/protected";
-import env from "./config";
-import { ApiError } from "./utils/errors";
-import { rateLimiter } from "./middleware/rateLimiter";
+import { logger } from "./utils/logger.js";
+import authRoutes from "./routes/auth.js";
+import protectedRoutes from "./routes/protected.js";
+import env from "./config/index.js";
+import { ApiError } from "./utils/errors.js";
+import { rateLimiter } from "./middleware/rateLimiter.js";
 
 const app = new Hono();
 

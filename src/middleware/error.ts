@@ -1,6 +1,6 @@
-import { Context, Next } from "hono";
-import { logger } from "../utils/logger";
-import { ApiError } from "../utils/errors";
+import type { Context, Next } from "hono";
+import { logger } from "../utils/logger.js";
+import { ApiError } from "../utils/errors.js";
 
 export async function errorHandler(c: Context, next: Next) {
   try {

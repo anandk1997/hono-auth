@@ -1,5 +1,9 @@
 import { describe, it, expect, beforeEach } from "vitest";
-import { hashPassword, comparePasswords, generateTokens } from "../utils/auth";
+import {
+  hashPassword,
+  comparePasswords,
+  generateTokens,
+} from "../utils/auth.js";
 
 describe("Authentication Utils", () => {
   describe("Password Hashing", () => {

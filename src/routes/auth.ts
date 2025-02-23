@@ -1,6 +1,6 @@
 import { Hono } from "hono";
-import { register, login, refresh } from "../controllers/auth";
-import { rateLimiter } from "../middleware/rateLimiter";
+import { register, login, refresh } from "../controllers/auth.js";
+import { rateLimiter } from "../middleware/rateLimiter.js";
 
 const auth = new Hono();
 

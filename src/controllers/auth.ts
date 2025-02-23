@@ -1,14 +1,18 @@
-import { Context } from "hono";
+import jwt from "jsonwebtoken";
+import type { Context } from "hono";
 import {
   registerSchema,
   loginSchema,
   refreshTokenSchema,
-} from "../validators/auth";
-import { BadRequestError, UnauthorizedError } from "../utils/errors";
-import { hashPassword, comparePasswords, generateTokens } from "../utils/auth";
-import { logger } from "../utils/logger";
-import env from "../config/index";
-import jwt from "hono/jwt";
+} from "../validators/auth.js";
+import { BadRequestError, UnauthorizedError } from "../utils/errors.js";
+import {
+  hashPassword,
+  comparePasswords,
+  generateTokens,
+} from "../utils/auth.js";
+import { logger } from "../utils/logger.js";
+import env from "../config/index.js";
 
 // In-memory user store (replace with a proper database in production)
 const users = new Map();

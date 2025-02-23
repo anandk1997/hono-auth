@@ -1,7 +1,7 @@
-import { Context, Next } from "hono";
+import type { Context, Next } from "hono";
 import { RateLimiterMemory } from "rate-limiter-flexible";
-import env from "../config";
-import { TooManyRequestsError } from "../utils/errors";
+import env from "../config/index.js";
+import { TooManyRequestsError } from "../utils/errors.js";
 
 const limiter = new RateLimiterMemory({
   points: env.RATE_LIMIT_MAX,

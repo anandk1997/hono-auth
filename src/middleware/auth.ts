@@ -1,8 +1,8 @@
-import { Context, Next } from "hono";
+import type { Context, Next } from "hono";
 import jwt from "jsonwebtoken";
-import env from "../config";
-import { CustomContext } from "../types";
-import { UnauthorizedError } from "../utils/errors";
+import env from "../config/index.js";
+import type { CustomContext } from "../types/index.js";
+import { UnauthorizedError } from "../utils/errors.js";
 
 export async function authenticate(c: Context, next: Next) {
   try {
